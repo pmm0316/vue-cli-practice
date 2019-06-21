@@ -37,8 +37,9 @@
       }
     },
     methods: {
-      handleClickMenu (path) {
+      handleClickMenu ({path, name}) {
         this.$router.push(path || '/')
+        this.$emit('set-menu-name', name)
       },
       renderMenu (list) {
         return list.map(item => {
@@ -56,7 +57,7 @@
             )
           }
           return (
-            <el-menu-item index={item.id} onClick={() => this.handleClickMenu(item.path)}>
+            <el-menu-item index={item.id} onClick={() => this.handleClickMenu(item)}>
               <i class="el-icon-menu"></i>
               <span slot="title">{item.name}</span>
             </el-menu-item>

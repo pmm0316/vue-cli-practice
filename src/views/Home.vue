@@ -33,7 +33,7 @@
       return {
         collapse: false,
         colSpan: 3,
-        logoText: 'VUEADMIN',
+        logoText: 'Vue CLI',
         menuName: '首页'
       }
     },
@@ -44,7 +44,7 @@
       handleToggleMenuShow () {
         this.collapse = !this.collapse
         this.colSpan = this.collapse ? 1 : 3
-        this.logoText = this.collapse ? '' : 'VUEADMIN'
+        this.logoText = this.collapse ? '' : 'Vue CLI'
       }
     }
   }

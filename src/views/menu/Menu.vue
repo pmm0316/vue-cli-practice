@@ -11,11 +11,12 @@
           },
           {
             id: '02',
-            name: '导航二',
+            name: '自定义组件',
             children: [
               {
                 id: '02-01',
-                name: '选项一'
+                name: 'notify',
+                path: '/custom/notify'
               },
               {
                 id: '02-02',

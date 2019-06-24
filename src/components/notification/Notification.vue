@@ -1,21 +1,28 @@
 <template>
-  <div class="notification">
-    <header class="header">
-      <div class="left">
-        <i class="icon el-icon-success"></i>
-        <span class="title">{{title}}</span>
+  <transition name="fade" @after-leave="afterLeave" @after-enter="afterEnter">
+    <div class="notification" :style="style" v-show="visible">
+      <header class="header">
+        <div class="left">
+          <i class="icon el-icon-success"></i>
+          <span class="title">{{title}}</span>
+        </div>
+        <i class="el-icon-close" @click="handleClose"></i>
+      </header>
+      <div class="message">
+        {{message}}
       </div>
-      <i class="el-icon-close" @click="handleClose"></i>
-    </header>
-    <div class="message">
-      {{message}}
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
   export default {
     name: 'i-notification',
+    data () {
+      return {
+        visible: false
+      }
+    },
     props: {
       title: {
         default: '标题',
@@ -26,9 +33,19 @@
         type: String
       }
     },
+    computed: {
+      style () {
+        return {}
+      }
+    },
     methods: {
-      handleClose () {}
-    }
+      handleClose () {
+        this.$emit('close')
+      },
+      afterLeave () {},
+      afterEnter () {}
+    },
+    mounted () {}
   }
 </script>
 
@@ -58,5 +75,11 @@
     .message {
       margin-top: 6px;
     }
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
   }
 </style>

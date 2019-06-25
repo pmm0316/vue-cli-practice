@@ -1,12 +1,30 @@
 import Vue from 'vue'
-import notification from './notification'
+import notification from './notification.js'
 
 const NotifyConstructor = Vue.extend(notification)
 const instances = []
 let id = 0
 
 const notify = (options) => {
-  let instance = new NotifyConstructor()
+  let {
+    duration,
+    onClose,
+    ...rest
+  } = options
+  if (duration <= 0) {
+    duration = 0
+  }
+  duration = duration === undefined ? 3000 : duration
+  let instance = new NotifyConstructor({
+    propsData: {
+      ...rest
+    },
+    data () {
+      return {
+        duration: duration
+      }
+    }
+  })
   instance.$mount()
   instance.id = `id_${id++}`
   let offsetScreen = 0
@@ -18,11 +36,11 @@ const notify = (options) => {
   instances.push(instance)
   document.body.appendChild(instance.$el)
   instance.visible = true
-  removeInstance(instance)
+  removeInstance(instance, onClose)
   return instance
 }
 
-const removeInstance = (instance) => {
+const removeInstance = (instance, onClose) => {
   if (!instance) {
     return
   }
@@ -40,6 +58,9 @@ const removeInstance = (instance) => {
   })
   instance.$on('close', () => {
     instance.visible = false
+    if (typeof onClose === 'function') {
+      onClose()
+    }
   })
 }
 export default notify

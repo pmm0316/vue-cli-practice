@@ -3,7 +3,7 @@
     <div class="notification" :style="style" v-show="visible">
       <header class="header">
         <div class="left">
-          <i class="icon el-icon-success"></i>
+          <i class="icon" :class="typeClassNames" v-show="typeClassNames"></i>
           <span class="title">{{title}}</span>
         </div>
         <i class="el-icon-close" @click="handleClose"></i>
@@ -16,6 +16,10 @@
 </template>
 
 <script>
+  const TYPE_CLASS_NAMES = {
+    success: 'el-icon-success',
+    error: 'el-icon-error'
+  }
   export default {
     name: 'i-notification',
     data () {
@@ -31,11 +35,21 @@
       message: {
         default: '这是一个提示信息',
         type: String
+      },
+      type: {
+        default: '',
+        type: String
       }
     },
     computed: {
       style () {
         return {}
+      },
+      typeClassNames () {
+        if (TYPE_CLASS_NAMES.hasOwnProperty(this.type)) {
+          return TYPE_CLASS_NAMES[this.type]
+        }
+        return ''
       }
     },
     methods: {
@@ -63,12 +77,16 @@
     .header {
       display: flex;
       justify-content: space-between;
+      font-weight: bold;
       .left {
         .icon {
           margin-right: 10px;
         }
         .el-icon-success {
           color: $color-success;
+        }
+        .el-icon-error {
+          color: $color-error;
         }
       }
     }

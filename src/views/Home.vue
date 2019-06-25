@@ -63,6 +63,7 @@
         border-right: 1px solid $color-border;
         display: flex;
         justify-content: space-around;
+        background-color: #fff;
         .icon, h5 {
           line-height: 57px;
         }
@@ -72,7 +73,7 @@
           color: #05999F;
         }
         h5 {
-          color: #fff;
+          color: #555;
           font-size: 18px;
         }
       }
@@ -91,6 +92,10 @@
           color: #2c3e50;
         }
       }
+    }
+    .content {
+      background-color: #F6FAFF;
+      height: calc(100vh - 60px);
     }
   }
 </style>

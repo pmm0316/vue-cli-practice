@@ -11,8 +11,9 @@ const notify = (options) => {
     onClose,
     ...rest
   } = options
-  if (duration <= 0) {
-    duration = 0
+  if (duration < 0) {
+    console.error(new RangeError('持续时间（duration）不能为负数'))
+    return
   }
   duration = duration === undefined ? 3000 : duration
   let instance = new NotifyConstructor({

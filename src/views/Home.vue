@@ -16,7 +16,9 @@
         <h3>{{menuName}}</h3>
       </div>
       <main class="content">
-        <router-view/>
+        <div class="wrapper">
+          <router-view/>
+        </div>
       </main>
     </el-col>
   </el-row>
@@ -88,14 +90,38 @@
         padding: 0 15px;
         h3 {
           line-height: 57px;
-          font-size: 25px;
+          font-size: 30px;
           color: #2c3e50;
+          font-weight: 300;
         }
       }
     }
     .content {
-      background-color: #F6FAFF;
+      /*background-color: #F6FAFF;*/
+      background-color: $color-theme;
       height: calc(100vh - 60px);
+      .wrapper {
+        width: 85%;
+        background-color: #e4f5ef;
+        border-radius: 5px;
+        margin: 0 auto;
+        padding: 0 10px;
+        height: calc(100vh - 80px);
+        overflow-y: scroll;
+      }
+      .wrapper::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 1px;
+      }
+      .wrapper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+        background: #eee;
+      }
+      .wrapper::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        border-radius: 10px;
+        background: #e4f5ef;
+      }
     }
   }
 </style>

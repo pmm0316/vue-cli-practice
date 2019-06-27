@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" @after-leave="afterLeave" @after-enter="afterEnter">
+  <transition name="slide-right" @after-leave="afterLeave" @after-enter="afterEnter">
     <div class="notification" :style="style" v-show="visible">
       <header class="header">
         <div class="left">
@@ -76,10 +76,24 @@
       margin-top: 6px;
     }
   }
-  .fade-enter-active, .fade-leave-active {
+  /*.fade-enter-active, .fade-leave-active {*/
+    /*transition: opacity .5s;*/
+  /*}*/
+  /*.fade-enter, .fade-leave-to !* .fade-leave-active below version 2.1.8 *! {*/
+    /*opacity: 0;*/
+  /*}*/
+  @keyframes slide {
+    0% {
+      right: -330px;
+    }
+  }
+  .slide-right-enter-active {
+    animation: slide 0.5s;
+  }
+  .slide-right-leave-active {
     transition: opacity .5s;
   }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  .slide-right-enter, .show-leave-to {
     opacity: 0;
   }
 </style>

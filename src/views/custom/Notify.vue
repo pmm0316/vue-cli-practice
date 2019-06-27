@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="container">
+    <h5>全局组件实战</h5>
     <el-button @click="handleNotify">tip</el-button>
   </div>
 </template>
@@ -15,6 +16,6 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

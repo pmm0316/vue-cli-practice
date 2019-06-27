@@ -1,4 +1,5 @@
 module.exports = {
+  // baseUrl: ' https://www.easy-mock.com/mock/5d14911fc941975e43da66fd/vue',
   css: {
     loaderOptions: {
       // 给 sass-loader 传递选项

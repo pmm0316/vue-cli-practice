@@ -32,8 +32,8 @@
     data () {
       return {
         collapse: false,
-        colSpan: 3,
-        logoText: 'Vue CLI',
+        colSpan: 4,
+        logoText: 'Vue3.x',
         menuName: '首页'
       }
     },
@@ -43,9 +43,12 @@
       },
       handleToggleMenuShow () {
         this.collapse = !this.collapse
-        this.colSpan = this.collapse ? 1 : 3
-        this.logoText = this.collapse ? '' : 'Vue CLI'
+        this.colSpan = this.collapse ? 1 : 4
+        this.logoText = this.collapse ? '' : 'Vue3.x'
       }
+    },
+    mounted () {
+      console.log(this.$axios);
     }
   }
 </script>
@@ -59,10 +62,12 @@
       }
     }
     .left {
+      transition: width 0.6s;
       .header {
         border-right: 1px solid $color-border;
         display: flex;
         justify-content: space-around;
+        width: 100%;
         .icon, h5 {
           line-height: 57px;
         }
@@ -74,6 +79,7 @@
         h5 {
           color: #fff;
           font-size: 18px;
+          font-weight: 400;
         }
       }
       .hide-header {

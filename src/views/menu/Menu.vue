@@ -66,11 +66,16 @@
         })
       }
     },
+    created () {
+      this.$axios.get('/menuList').then(res => {
+          console.log(res)
+      })
+    },
     render () {
       const menuNode = this.renderMenu(this.menuList)
       return (
         <el-menu
-          class="el-menu-vertical-demo"
+          className="el-menu-vertical-demo"
           default-active="01"
           collapse={this.isCollapse}
           text-color="#555"
@@ -85,5 +90,6 @@
 <style scoped lang="scss">
   .el-menu {
     height: calc(100vh - 60px);
+    width: 100%;
   }
 </style>

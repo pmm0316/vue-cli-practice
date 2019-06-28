@@ -34,7 +34,7 @@
     data () {
       return {
         collapse: false,
-        colSpan: 3,
+        colSpan: 4,
         logoText: 'Vue CLI',
         menuName: '首页'
       }
@@ -45,7 +45,7 @@
       },
       handleToggleMenuShow () {
         this.collapse = !this.collapse
-        this.colSpan = this.collapse ? 1 : 3
+        this.colSpan = this.collapse ? 1 : 4
         this.logoText = this.collapse ? '' : 'Vue CLI'
       }
     }
@@ -61,6 +61,7 @@
       }
     }
     .left {
+        transition: width 0.8s;
       .header {
         border-right: 1px solid $color-border;
         display: flex;

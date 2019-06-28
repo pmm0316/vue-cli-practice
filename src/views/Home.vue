@@ -110,19 +110,6 @@
         height: calc(100vh - 80px);
         overflow-y: scroll;
       }
-      .wrapper::-webkit-scrollbar {/*滚动条整体样式*/
-        width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
-        height: 1px;
-      }
-      .wrapper::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
-        border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
-        background: #eee;
-      }
-      .wrapper::-webkit-scrollbar-track {/*滚动条里面轨道*/
-        border-radius: 10px;
-        background: #e4f5ef;
-      }
     }
   }
 </style>

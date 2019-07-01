@@ -1,34 +1,10 @@
 <script type="text/jsx">
+  import * as API from '../../api'
   export default {
     name: 'Menu',
     data () {
       return {
-        menuList: [
-          {
-            id: '01',
-            name: '首页',
-            path: '/dashboard'
-          },
-          {
-            id: '02',
-            name: '自定义组件',
-            children: [
-              {
-                id: '02-01',
-                name: 'notify',
-                path: '/custom/notify'
-              },
-              {
-                id: '02-02',
-                name: '选项而'
-              }
-            ]
-          },
-          {
-            id: '03',
-            name: '导航三'
-          }
-        ]
+        menuList: []
       }
     },
     props: {
@@ -67,8 +43,8 @@
       }
     },
     created () {
-      this.$axios.get('/menuList').then(res => {
-          console.log(res)
+      API.getMenuList().then(({data}) => {
+        this.menuList = data
       })
     },
     render () {

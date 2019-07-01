@@ -6,5 +6,7 @@
  */
 import Vue from 'vue'
 import Notification from './components/notification'
+import Notify from './components/nf-notify'
 
 Vue.use(Notification)
+Vue.use(Notify)

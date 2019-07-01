@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h5>全局组件实战</h5>
     <header class="header">
       <h5>全局组件实战</h5>
     </header>
@@ -56,17 +55,24 @@
           },
           {
             title: 'question 2',
-            content: 'v-model语法糖解析'
+            content: 'transition动画组件有几种状态，状态名称分别是什么'
           }
         ]
       }
     },
     methods: {
       handleNotify () {
-        this.$notify({
+        /*this.$notify({
           title: 'title',
           message: '下雨天真好！',
           duration: -1
+        })*/
+        this.$nfNotify({
+          title: '成功',
+          message: '这是一条成功的消息',
+          onClose () {
+            console.log('关闭')
+          }
         })
       }
     }
